@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>result of artist</title>
+    <link rel="stylesheet" href="../assets/style1.css">
+</head>
+
+<body>
+
+    <div>
+        <strong>{{.ArtistData.Name}}</strong>
+        <br>
+        <br>
+        <img src="{{.ArtistData.Image}}">
+        <br>
+        <h3>Artists Members</h3> 
+        {{range.ArtistData.Members}}
+        <ul>
+            <tr>{{.}}</tr>
+        </ul>
+        {{end}}
+        <br>
+        <h3>Artists CreationDate</h3>
+        {{.ArtistData.CreationDate}}
+
+        <h3>Artists FirstAlbum</h3>
+        <br>
+        {{.ArtistData.FirstAlbum}}
+        <br>
+
+    </div>
+    <div>
+        <h3>Artists Locations</h3>
+        {{range .Locations.Locations}}
+        <ul>
+           
+            <tr>{{.}}</tr>
+
+        </ul>
+        {{end}}
+        <br>
+    </div>
+    <div>
+        <h3>dates</h3>
+        {{range.Dates.Dates}}
+        <ul>
+            <tr>{{.}}</tr>
+        </ul>
+        {{end}}
+        <br>
+    </div>
+
+    <div>
+        <h3>Dates Locations</h3>
+        {{range $key, $value := .Relation.DatesLocations}}
+        <ul> 
+            <li>{{$key}}</li>
+            {{range $value}}
+              <br><span class="span">
+                {{.}} <br>
+                </span>
+                {{end}}
+        </ul>
+        {{end}}
+    </div>
+        <div class="vertical-center">
+
+                <a href="/" ><button>Go Back</button></a>
+        </div>
+        
+</body>
+
+</html>
