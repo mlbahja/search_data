@@ -21,7 +21,6 @@ func main() {
 	http.HandleFunc("/assets/", servCss)
 	http.HandleFunc("/", vis.IndexHandler)
 	http.HandleFunc("/artists/{id}", vis.PageHandler)
-	http.HandleFunc("/search",vis.SearchHandler)
 	fmt.Println("\033[32mServer started at http://127.0.0.1:8080\033[0m")
 	err := http.ListenAndServe("127.0.0.1:8080", nil)
 	if err != nil {
