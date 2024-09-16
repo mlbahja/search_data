@@ -4,26 +4,32 @@ import (
 	"fmt"
 	"net/http"
 
-	vis "groupie/Handlers"
+	help "tools/tools"
 )
 
-func servCss(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path == "/assets/" {
-		vis.ErrorPages(w, 404)
-		return
-	}
-	fs := http.FileServer(http.Dir("./assets"))
-	http.StripPrefix("/assets/", fs).ServeHTTP(w, r)
+func main() {
+	// setupRoutes()
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", (http.StripPrefix("/static/", fs)))
+
+	http.HandleFunc("/", help.Index)
+	http.HandleFunc("/search", help.SearchResult)
+	http.HandleFunc("/bandsinfo", help.Bandinfo)
+
+	fmt.Println("Server is running at http://localhost:8080")
+	http.ListenAndServe(":8080", nil)
 }
 
-func main() {
-	// http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets"))))
-	http.HandleFunc("/assets/", servCss)
-	http.HandleFunc("/", vis.IndexHandler)
-	http.HandleFunc("/artists/{id}", vis.PageHandler)
-	fmt.Println("\033[32mServer started at http://127.0.0.1:8080\033[0m")
-	err := http.ListenAndServe("127.0.0.1:8080", nil)
-	if err != nil {
-		fmt.Printf("Server failed to start: %v\n", err)
-	}
-}
+// func protectStaticFiles(next http.Handler) http.Handler {
+// 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+// 		if strings.HasPrefix(r.URL.Path, "/static/") {
+// 			// Check ila kayn Referer header (kay3ni ja men page dyalna)
+// 			referer := r.Header.Get("Referer")
+// 			if referer == "" || !strings.Contains(referer, r.Host) {
+// 				http.Error(w, "Direct access forbidden", http.StatusForbidden)
+// 				return
+// 			}
+// 		}
+// 		next.ServeHTTP(w, r)
+// 	})
+// }

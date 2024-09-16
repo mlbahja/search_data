@@ -1,39 +1,50 @@
-# Groupie-Tracker-visualizations
+# Groupie Tracker Search Bar
 
-## Description
+## Objectives
 
-This is a simple web application that consists on receiving a given API and manipulate the data contained in it, in order to create a site, displaying the information.
+This project follows the same principles as the original Groupie Tracker but focuses on implementing an advanced search functionality.
+
+### Groupie Tracker Search Bar consists of:
+- **Creating a functional program** that allows users to search through the website's database for specific text inputs related to bands, artists, members, locations, or important dates.
+- The goal is to enhance the client’s interaction with the data by providing efficient search capabilities.
+
+### Search cases must include:
+- **Artist/band name**
+- **Members**
+- **Locations**
+- **First album date**
+- **Creation date**
+
+### Features:
+1. **Case-insensitive search**: The search functionality should not be sensitive to capitalization.
+2. **Typing suggestions**: As the user types, the search bar should display suggestions matching the input.
+3. **Suggestion types**: The search bar must identify the type of suggestion, such as whether it’s an artist, member, or location.
+   - For example: If you type "phil", it should suggest "Phil Collins - member" and "Phil Collins - artist/band".
+
+## Requirements
+- The **backend** must be written in **Go**.
+- The website should remain stable at all times (no crashes or errors).
+- The code must follow **best practices** and include **unit tests**.
+
+### Technologies:
+- **Go** for the backend.
+- **HTML** for the frontend.
+- **JSON** for managing the API data.
+
+### Allowed Packages:
+- Only the **standard Go packages** are allowed.
 
 ## Usage
 
-To run the application, you need to have golang installed on your machine. You can download it from [here](https://golang.org/dl/).
-
-After installing golang, you can run the following commands to run the application:
-
-```bash
-go run .
-```
-
-This will start the server on port 8080. You can access the application by visiting [http://localhost:8080](http://localhost:8080) in your browser.
-
-## Implementation
-
-The application is built using golang and html. The golang server serves the html files and handles the conversion of text to .
-
+This project will help you learn:
+- **Data manipulation** and search functionality.
+- **Client-server communication**.
+- How to manage **JSON** data and formats.
+- **Web development** with Go and HTML.
 
 ## Authors
-mohamed ghdaigui [(mghdaigu)](https://learn.zone01oujda.ma/git/mghdaigu)<br>
-abdelhadi saaoud [(asaaoud)](https://learn.zone01oujda.ma/git/asaaoud)<br>
-Mustapha Lbahja [(mlbahja)](https://learn.zone01oujda.ma/git/mlbahja)<br>
 
-![Screenshot 1](images/s1.png)
-![Screenshot 2](images/s2.png)
-![Screenshot 3](images/s3.png)
-![Screenshot 4](images/s4.png)
-![Screenshot 5](images/s5.png)
-![Screenshot 6](images/s6.png)
-![Screenshot 7](images/s7.png)
-![Screenshot 8](images/s8.png)
-![Screenshot 9](images/s9.png)
-
+- [belmaayo](https://learn.zone01oujda.ma/git/belmaayo)
+- [mfadil](https://learn.zone01oujda.ma/git/mfadil)
+- [youzddou](https://learn.zone01oujda.ma/git/youzddou)
 

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <style>
+        /* Reset some default styles for consistency */
+body, h1, ul, li, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Styling for the main heading */
+h1 {
+    font-size: 2rem;
+    color: #007BFF;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Styling for the search results list */
+ul {
+    list-style-type: none;
+}
+
+/* Styling for each list item */
+li {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+/* Hover effect for list items */
+li:hover {
+    background: #f1f1f1;
+    border-color: #007BFF;
+}
+
+/* Styling for the images */
+img {
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* Styling for the links */
+a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+/* Styling for strong text within list items */
+strong {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+/* Styling for emphasized text */
+em {
+    color: #666;
+    font-style: italic;
+}
+
+/* Styling for the no results message */
+p {
+    font-size: 1rem;
+    color: #888;
+}
+
+    </style>
+
+    <h1>Search Results</h1>
+    {{if .}}
+    <ul>
+        {{range .}}
+        <li>
+            <a href="/bandsinfo?=id{{.Id}}">
+                <img src="{{.Image}}" alt="{{.Name}}" width="50">
+                <strong>{{.Name}}</strong>
+            </a>
+        </li>
+        {{end}}
+    </ul>
+    {{else}}
+    <p>No results found for your search.</p>
+    {{end}}
+</body>
+</html>

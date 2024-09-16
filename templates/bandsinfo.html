@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/css/stylebandsinfo.css">
+    <title>bandsinfo</title>
+  </head>
+  <style>
+   
+  </style>
+  <body>
+    <div class="hero">
+      <div class="container">
+        <table>
+          <tr>
+            <td colspan="2">
+              <img src="{{.Image}}" alt="{{.Name}}" class="img-holder" />
+              <h3>{{.Name}}</h3>
+              <p>Creation Date : {{.CreationDate}}</p>
+            </td>
+          </tr>
+          <tr>
+            <th>First Album</th>
+            <td>
+              <ul>
+                <li>{{ .FirstAlbum }}</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Members</th>
+            <td>
+              <ul>
+                {{ range .Members }}
+                <li>{{ . }}</li>
+                {{ end }}
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Locations</th>
+            <td>
+              <ul>
+                {{ range .Locations }}
+                <li>{{ . }}</li>
+                {{ end }}
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Concert Dates</th>
+            <td>
+              <ul>
+                {{ range .ConcertDates }}
+                <li>{{ . }}</li>
+                {{ end }}
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Relation</th>
+            <td>
+              <ul>
+                {{ range $key, $value := .Relation }}
+                <li>{{ $key }}: {{ $value }}</li>
+                {{ end }}
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="btn-container">
+      <a class="btn" href="/">Explore more artists</a>
+    </div>
+  </body>
+</html>
